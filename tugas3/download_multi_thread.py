@@ -4,18 +4,6 @@ import requests
 import datetime
 import os
 
-def worker(nomor):
-    waktu = datetime.datetime.now()
-    logging.warning(f"saya worker nomor {nomor}")
-    return
-
-
-threads = []
-for i in range(5):
-    t = threading.Thread(target=worker,args=(i,))
-    t.start()
-
-
 def download_gambar(url=None):
     if (url is None):
         return False
@@ -39,7 +27,15 @@ def download_gambar(url=None):
 
 
 if __name__=='__main__':
-    download_gambar('https://www.its.ac.id/wp-content/uploads/sites/2/2020/02/WhatsApp-Image-2020-02-12-at-16.02.13-1024x683.jpeg')
-    download_gambar('https://cdn0-production-images-kly.akamaized.net/i7MJAqQ8-ZM9-BkSO5cAZCfyJpE=/0x0:1197x1596/640x853/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2971440/original/004271000_1574142781-Disney_Frozen_II_Poster.jpg')
+    daftar_gambar = [
+        'https://www.its.ac.id/wp-content/uploads/sites/2/2020/02/WhatsApp-Image-2020-02-12-at-16.02.13-1024x683.jpeg',
+        'https://www.pngfind.com/pngs/m/422-4223072_this-free-icons-png-design-of-rose-17.png',
+        'http://pngimg.com/uploads/rose/rose_PNG67024.png'
+        
+    ]
     
-
+threads = []
+for i in daftar_gambar:
+    t = threading.Thread(target=download_gambar,args=(i,))
+    threads.append(t)
+    t.start()
