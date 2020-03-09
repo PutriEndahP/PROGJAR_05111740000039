@@ -1,4 +1,6 @@
-*** Download Gambar melalui link gambar menggunakan Multi Threads ***
+## Tugas 3
+
+### Download Gambar melalui link gambar menggunakan Multi Threads
 
 * Berikut ini merupakan hasil ketika source code di jalankan :
 ![1](https://github.com/PutriEndahP/PROGJAR_05111740000039/blob/master/tugas3/Screenshot%20Running/Screenshot_5.jpg)
