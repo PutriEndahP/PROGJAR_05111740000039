@@ -12,7 +12,7 @@ sock.connect(server_address)
 
 try:
     # Send data
-    message = 'HALO PUTRI ENDAH PUSPITASARI'
+    message = 'PEMROGRAMAN JARINGAN TEKNIK INFORMATIKA'
     print(f"sending {message}")
     sock.sendall(message.encode())
     # Look for the response
