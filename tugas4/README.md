@@ -5,8 +5,13 @@
 
 #### 1. Merancang sebuah protocol
 a) Meletakkan File : 
-Saya menggunakan "put" untuk meletakkan file.
+
+Saya menggunakan *put* untuk meletakkan file.
+
 b) Mengambil File :
-Saya menggunakan "get" untuk mengambil file.
+
+Saya menggunakan *get* untuk mengambil file.
+
 c) Melihat List File :
-Saya menggunakan "ls" untuk melihat list file.
+
+Saya menggunakan *ls* untuk melihat list file.
