@@ -287,7 +287,7 @@
    
    1. Fitur ``` ls ```
    
-   * Request :
+   Request :
    
    - Menjalankan server.py terlebih dahulu.
    
@@ -298,7 +298,7 @@
    ![5](https://github.com/PutriEndahP/PROGJAR_05111740000039/blob/master/tugas4/Screenshot/client_ls%20dijalankan%20dgn%20port%202121.jpg)
    
    
-   * Response :
+   Response :
    
    - Client akan menampilkan list file yang ada di server
    
@@ -308,13 +308,54 @@
    
    ![7](https://github.com/PutriEndahP/PROGJAR_05111740000039/blob/master/tugas4/Screenshot/server%20setelah%20request%20ls.jpg)
    
+   Quit client_ls.py
+   
+   ![8](https://github.com/PutriEndahP/PROGJAR_05111740000039/blob/master/tugas4/Screenshot/quit%20client_ls.jpg)
+   
    
    2. Fitur ``` get ```
    
-   * Request :
+   Request :
    
-   * Response :
+   - Menjalankan client_get.py untuk meminta request.
    
+   ![9](https://github.com/PutriEndahP/PROGJAR_05111740000039/blob/master/tugas4/Screenshot/client_get%20dijalankan%20dgn%20port%202121.jpg)
+   
+   Response :
+   
+   - Server setelah request get dijalankan
+   
+   ![10](https://github.com/PutriEndahP/PROGJAR_05111740000039/blob/master/tugas4/Screenshot/server%20setelah%20request%20get.jpg)
+   
+   - Isi folder client setelah get dijalankan
+   
+   ![11](https://github.com/PutriEndahP/PROGJAR_05111740000039/blob/master/tugas4/Screenshot/isi%20folder%20setelah%20run%20get.jpg)
+   
+   Quit client_get.py
+   
+   ![12](https://github.com/PutriEndahP/PROGJAR_05111740000039/blob/master/tugas4/Screenshot/quit%20client_get.jpg)
+   
+   3. Fitur ``` put ```
+   
+   Request :
+   
+   - Menjalankan client_put.py untuk memita request
+   
+   ![13](https://github.com/PutriEndahP/PROGJAR_05111740000039/blob/master/tugas4/Screenshot/client_put%20dijakankan%20dgn%20port%202121.jpg)
+   
+   Response :
+   
+   - Server setelah put dijalankan
+   
+   ![14](https://github.com/PutriEndahP/PROGJAR_05111740000039/blob/master/tugas4/Screenshot/server%20setelah%20request%20put.jpg)
+   
+   - Isi folder setelah put dijalankan
+   
+   ![15](https://github.com/PutriEndahP/PROGJAR_05111740000039/blob/master/tugas4/Screenshot/isi%20folder%20setelah%20run%20put.jpg)
+   
+   Quit client_put.py
+   
+   ![16](https://github.com/PutriEndahP/PROGJAR_05111740000039/blob/master/tugas4/Screenshot/quit%20client_put.jpg)
    
 
 
