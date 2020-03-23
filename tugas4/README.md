@@ -3,28 +3,20 @@
 ## Soal Tugas 4 :
 ![1](https://github.com/PutriEndahP/PROGJAR_05111740000039/blob/master/tugas4/soal%20tugas%204.jpeg)
 
-### Dokumentasi
+### Dokumentasi Protocol
 
-#### 1. Merancang sebuah protocol
-* Meletakkan File : 
+#### Buatlah DOkumentasi dari Protocol tersebut, berisikan 
+* Ketentuan Membaca Format: 
 
-Saya menggunakan *put* untuk meletakkan file.
+  Saya menggunakan *put* untuk meletakkan file.
 
-* Mengambil File :
+* Daftar Fitur:
 
-Saya menggunakan *get* untuk mengambil file.
+  Saya menggunakan *get* untuk mengambil file.
 
-* Melihat List File :
+* Cara Melakukan Request :
 
 Saya menggunakan *ls* untuk melihat list file.
 
-#### 2. Dokumentasi Protocol
-
-##### a. Ketentuan Membaca Format
-
-##### b. Daftar Fitur
-
-##### c. Cara Melakukan Request
-
-##### d. Apa Respon yang Didapat
+* Apa Respon yang Didapat : 
 
