@@ -281,13 +281,39 @@
    
    #### Tampilan Request dan Response :
    
-   * Fitur ls
+   Isi folder client dan server sebelum request dijalankan
    
-   - Request :
+   ![3](https://github.com/PutriEndahP/PROGJAR_05111740000039/blob/master/tugas4/Screenshot/isi%20folder%20sebelum%20di%20run.jpg)
+   
+   1. Fitur ``` ls ```
+   
+   * Request :
+   
+   - Menjalankan server.py terlebih dahulu.
+   
+   ![4](https://github.com/PutriEndahP/PROGJAR_05111740000039/blob/master/tugas4/Screenshot/Server%20dijalankan%20dgn%20port%202121.jpg)
+   
+   - Menginputkan request ls di client_ls.py 
+   
+   ![5](https://github.com/PutriEndahP/PROGJAR_05111740000039/blob/master/tugas4/Screenshot/client_ls%20dijalankan%20dgn%20port%202121.jpg)
    
    
+   * Response :
    
-   - Response :
+   - Client akan menampilkan list file yang ada di server
+   
+   ![6](https://github.com/PutriEndahP/PROGJAR_05111740000039/blob/master/tugas4/Screenshot/client_ls%20dijalankan%20dgn%20port%202121.jpg)
+   
+   - Kondisi server setelah Client_ls.py dijalankan
+   
+   ![7](https://github.com/PutriEndahP/PROGJAR_05111740000039/blob/master/tugas4/Screenshot/server%20setelah%20request%20ls.jpg)
+   
+   
+   2. Fitur ``` get ```
+   
+   * Request :
+   
+   * Response :
    
    
 
