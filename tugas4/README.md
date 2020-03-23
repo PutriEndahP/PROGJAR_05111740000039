@@ -23,6 +23,7 @@
 ##### c. Cara Melakukan Request :
 
   Request dilakukan oleh client, dengan meng-inputkan string yang diminta. Request tersebut selanjutnya akan diterima oleh server dan     akan di proses lebih lanjut.
+  
   Berikut ini merupakan source code dari client untuk memasukkan input :
   
   ```
@@ -36,6 +37,15 @@
     except:
         fname = ""
   ```
+  Berikut penjelasannya :
+  
+  ``` cmd = input(""+str("ftp@ ") + str(cur_dir) + " > ") ``` Digunakan untuk menampilkan input di terminal.
+  
+  ``` s.send(createJSON('ok', cmd)) ``` Digunakan untuk mengirimkan string input sesuai dengan command yang dituliskan.
+  
+  ```  s_cmd = cmd.split(" ") ``` Digunakan untuk memecah string inputnya.
+  
+  ```  cm = s_cmd[0] ``` Untuk mendapatkan command inputnya.
 
 ##### d. Apa Respon yang Didapat : 
 
