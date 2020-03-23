@@ -9,6 +9,13 @@
 
 #### a. Ketentuan Membaca Format: 
 
+```
+data = {
+        'response' : response,
+        'data' : data,
+    }
+    return pickle.dumps(json.dumps(data))
+```
 
 #### b. Daftar Fitur:
 
