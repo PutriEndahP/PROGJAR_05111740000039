@@ -5,12 +5,12 @@
 
 ### Dokumentasi Protocol
 
-#### Buatlah Dokumentasi dari Protocol tersebut, berisikan :
+### Buatlah Dokumentasi dari Protocol tersebut, berisikan :
 
-##### a. Ketentuan Membaca Format: 
+#### a. Ketentuan Membaca Format: 
 
 
-##### b. Daftar Fitur:
+#### b. Daftar Fitur:
 
   Terdapat tiga fitur di protocol ini, yaitu :
   
@@ -20,7 +20,7 @@
   
   * LS : Fitur yang digunakan untuk melihat list file dalam directory.
 
-##### c. Cara Melakukan Request :
+#### c. Cara Melakukan Request :
 
   Request dilakukan oleh client, dengan meng-inputkan string yang diminta. Request tersebut selanjutnya akan diterima oleh server dan     akan di proses lebih lanjut.
   
@@ -47,7 +47,7 @@
   
   ```  cm = s_cmd[0] ``` Untuk mendapatkan command inputnya.
   
-  Request untuk mendapatkan list data :
+  * Request untuk mendapatkan list data :
   
   ``` 
     if cm == "ls":
@@ -61,7 +61,7 @@
   
   Command ls digunakan untuk mendapat list file dalam suatu directory. Kemudian client akan mendapatkan response dari server yang akan     dimasukkan ke variabel bernama data. Selanjutnya akan dilakukan looping data dari client. Ukuran datanya akan dirubah ke Kb dengan       dibagi 1000. Kemudian hasil akan di print. 
   
-  Request untuk mendapat file :
+  * Request untuk mendapat file :
   
   ```
     if cm == "get":
@@ -99,7 +99,7 @@
   
   Command get untuk mendapatkan file dari suatu directory. Untuk mendapatkan semua file dalam sebuah directory bisa menggunakan command   ``` get [.] ```. Tapi jika ingin mendapatkan satu file saja dalam suatu directory menggunakan command ``` get [namafile] ```. Kemudian    server akan mengirimkan request dan client akan mencetak file yang diminta.
   
-  Request untuk meletakkan file :
+  * Request untuk meletakkan file :
   
   ```
   if cm == "put":
@@ -144,8 +144,144 @@
   
   Command put digunakan untuk meletakkan file ke suatu directory. Dengan command ``` put [filename] ``` maka server akan memproses         permintaan client dan meletakkan file tertentu yang sudah dipilih. Sedangkan jika tidak ada file yang akan di letakkan maka client       akan mencetak pesan bahwa tidak ada file atau " No Such File ".
 
-##### d. Apa Respon yang Didapat : 
+#### d. Apa Respon yang Didapat : 
 
+  Aksi yang didapat sever setelah mendapat request dari client yaitu akan memproses permintaan client sesuai dengan request nya,           sehingga client akan mendapat respon kembali.
+  
+  Berikut ini merupakan aksi dari server berdasarkan request client.
+  
+  * Aksi Server setelah mendapat respon ls :
+  
+  ```
+  def handleLs(conn):
+    datas = os.listdir()
+    files = []
+    for d in datas:
+        d = str(d)
+        tmp={
+            'name': d,
+            'size': os.path.getsize(d), # get file size
+        }
+        files.append(tmp) # insert to json variable
+    if len(files) < 1: 
+        files = 'Folder Empty'
+    json = {
+        'files' : files
+    }
+    conn.send(createJSON('ok', json))
+  ```
+  
+  Fungsi handleLs untuk mengirim respon ke client saat meminta request ls. Pertama, server akan mendapatkan list file dari directory.     Kemudian akan membuat variable Json berupa array bernama files. Dibuat looping untuk files untuk mendapatkan nama file dan file size     nya. Membuat object bernama ``` tmp ``` kemudian dimasukkan ke variable files. Hitung panjang file nya, kalau panjang file 0 maka       tidak ada file maka ``` Folder Empty ```. Buat Json nya dengan parameter files dan isinya files. Selanjutnya dikoneksikan dan dikirim   dengan parameter Json yaitu response dan data.
+  
+  Function untuk membuat Json :
+  
+  ```
+  def createJSON(response, data):
+    data = {
+        'response' : response,
+        'data' : data,
+    }
+    return pickle.dumps(json.dumps(data))
+
+  ```
+  
+  ``` json.dumps ``` digunakan untuk men-serialize untuk memastikan parameter Json tidak rusak.
+  
+  ``` pickle.dumps ``` merupakan library yang digunakan untuk men-serialize data pada pengiriman yaitu merubah array menjadi string.
+  
+  
+   * Aksi Server setelah mendapat respon get :
+   
+   ```
+   def handleGet(conn, filename):
+    if filename == ".":
+        path = os.getcwd()
+        all_files = [f for f in os.listdir(path)
+                     if os.path.isfile(os.path.join(path, f))]
+        ssize = len(all_files)
+        conn.send(createJSON('ok', ssize))
+        n = getRecv(conn, 1024)
+        for a_file in all_files:
+            conn.send(createJSON('ok', str(a_file)))
+            n = getRecv(conn, 1024)
+            with open(str(a_file), "rb") as f:
+                l = f.read(1024)
+                while (l):
+                    conn.send(l)
+                    n = getRecv(conn, 1024)
+                    l = f.read(1024)
+                conn.send(str.encode("$end$"))
+                f.close()
+        return
+    else:
+        cur_path = os.getcwd()
+        if os.path.exists(filename):
+            print('onok')
+            conn.send(createJSON('ok', "$present$"))
+            istry = getRecv(conn, 1024)
+            if istry == "ok":
+                with open(filename, "rb") as f:
+                    f = open(filename, 'rb')
+                    l = f.read(1024)
+                    while (l):
+                        conn.send(l)
+                        n = getRecv(conn, 1024)
+                        l = f.read(1024)
+                    conn.send(str.encode("$end$"))
+                    f.close()
+            return
+        else:
+            conn.send(createJSON('ok', filename+" not exists"))
+            return
+   ```
+   
+   Server mendapatkan array dari semua file. Kemudian koneksi terhubung danmengirimkan ke client.
+   
+   
+   * Aksi Server setelah mendapat respon put :
+   
+   ```
+   ef handlePut(conn, filename):
+    if filename == ".":
+        ssize = getRecv(conn, 1024)
+        conn.send(createJSON('ok', 'ready to upload'))
+        for i in range(int(ssize)):
+            fff_name = getRecv(conn, 1024)
+            conn.send(createJSON('ok', 'ready to upload'))
+            with open(fff_name, 'wb') as f:
+                data = conn.recv(1024)
+                while True:
+                    f.write(data)
+                    conn.send(createJSON('ok', 'got part of file'))
+                    data = conn.recv(1024)
+                    if data.decode("utf-8") == "$end$":
+                        print(str(fff_name)+' was uploaded')
+                        break
+        return
+    else:
+        status = getRecv(conn, 1024)
+        if status == 'notOk':
+            return
+        else :
+            conn.send(createJSON('ok', 'ready to upload'))
+            with open(filename, 'wb') as f:
+                data = conn.recv(1024)
+                while True:
+                    f.write(data)
+                    conn.send(createJSON('ok', 'got part of file'))
+                    data = conn.recv(1024)
+                    if data.decode("utf-8") == "$end$":
+                        print(str(filename)+' was uploaded')
+                        break
+            return
+   ```
+   
+   Server mendapatkan filename. Jika proses meletakkan selesai akan mengirimkan pesan " was uploaded ".
+   
+
+
+  
+  
 
 
 
