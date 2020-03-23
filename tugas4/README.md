@@ -5,7 +5,7 @@
 
 ### Dokumentasi Protocol
 
-#### Buatlah DOkumentasi dari Protocol tersebut, berisikan :
+#### Buatlah Dokumentasi dari Protocol tersebut, berisikan :
 
 ##### a. Ketentuan Membaca Format: 
 
@@ -22,7 +22,20 @@
 
 ##### c. Cara Melakukan Request :
 
-  Request dilakukan oleh client, dengan meng-inputkan string yang diminta dan akan dikirimkan 
+  Request dilakukan oleh client, dengan meng-inputkan string yang diminta. Request tersebut selanjutnya akan diterima oleh server dan     akan di proses lebih lanjut.
+  Berikut ini merupakan source code dari client untuk memasukkan input :
+  
+  ```
+    cmd = input(""+str("ftp@ ") + str(cur_dir) + " > ")
+    s.send(createJSON('ok', cmd))
+    s_cmd = cmd.split(" ")
+    cm = s_cmd[0]
+
+    try:
+        fname = s_cmd[1]
+    except:
+        fname = ""
+  ```
 
 ##### d. Apa Respon yang Didapat : 
 
