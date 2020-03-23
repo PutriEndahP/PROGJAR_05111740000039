@@ -6,16 +6,15 @@
 ### Dokumentasi
 
 #### 1. Merancang sebuah protocol
-
-  ##### * Meletakkan File : 
+* Meletakkan File : 
 
 Saya menggunakan *put* untuk meletakkan file.
 
-  ##### * Mengambil File :
+* Mengambil File :
 
 Saya menggunakan *get* untuk mengambil file.
 
-  ##### * Melihat List File :
+* Melihat List File :
 
 Saya menggunakan *ls* untuk melihat list file.
 
