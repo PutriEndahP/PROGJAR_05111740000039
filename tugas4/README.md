@@ -16,6 +16,7 @@ data = {
     }
     return pickle.dumps(json.dumps(data))
 ```
+Diatas merupakan format function untuk merubah menajdi Json.
 
 #### b. Daftar Fitur:
 
