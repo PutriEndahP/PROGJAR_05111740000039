@@ -5,18 +5,24 @@
 
 ### Dokumentasi Protocol
 
-#### Buatlah DOkumentasi dari Protocol tersebut, berisikan 
-* Ketentuan Membaca Format: 
+#### Buatlah DOkumentasi dari Protocol tersebut, berisikan :
 
-  Saya menggunakan *put* untuk meletakkan file.
+##### a. Ketentuan Membaca Format: 
 
-* Daftar Fitur:
 
-  Saya menggunakan *get* untuk mengambil file.
+##### b. Daftar Fitur:
 
-* Cara Melakukan Request :
+  Terdapat tiga fitur di protocol ini, yaitu :
+  
+  * GET : Fitur yang digunakan untuk mengambil file.
+  
+  * PUT : Fitur yang digunakan untuk meletakkan file.
+  
+  * LS : Fitur yang digunakan untuk melihat list file dalam directory.
 
-Saya menggunakan *ls* untuk melihat list file.
+##### c. Cara Melakukan Request :
 
-* Apa Respon yang Didapat : 
+  Request dilakukan oleh client, dengan meng-inputkan string yang diminta dan akan dikirimkan 
+
+##### d. Apa Respon yang Didapat : 
 
