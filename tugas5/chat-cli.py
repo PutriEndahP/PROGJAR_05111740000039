@@ -28,8 +28,8 @@ class ChatClient:
                 return self.sendmessage(usernameto,message)
             elif (command=='inbox'):
                 return self.inbox()
-            elif (command=='list_user'):
-                return self.list_user()
+            elif (command=='listuseraktif'):
+                return self.listuseraktif()
             elif (command=='logout'):
                 return self.logout()
             else:
@@ -78,22 +78,26 @@ class ChatClient:
             return "{}" . format(json.dumps(result['messages']))
         else:
             return "Error, {}" . format(result['message'])
-    def list_user(self):
+    def listuseraktif(self):
         if(self.tokenid==""):
             return "Error, not authorized"
-        string="list_user {} \r\n".format(self.tokenid)
+        string="listuseraktif {} \r\n".format(self.tokenid)
 
         result = self.sendstring(string)
-        print("trial")
+        #print("trial")
         if result['status']=='OK':
-            return "{}".format(json.dumps(result['list_user']))
+            return "listuseraktif: {}".format(json.dumps(result['message']))
         else:
             return "Error, {}".format(result[message])
     def logout(self):
         if(self.tokenid==""):
-            return "Maaf, Mohon Anda Login Terlebih Dulu"
-        self.tokenid=""
-        return "Anda berhasil Logout"
+            return "Error, not authorized"
+        string="logout {} \r\n".format(self.tokenid)
+        result = self.sendstring(string)
+        if result['status']=='OK':
+            self.tokenid=""
+        else:
+            return "Error, {}" . format(result['message'])
 
 
 

@@ -35,12 +35,14 @@ class Chat:
 				username = self.sessions[sessionid]['username']
 				logging.warning("INBOX: {}" . format(sessionid))
 				return self.get_inbox(username)
-			elif (command == 'list_user'):
+			elif (command == 'listuseraktif'):
 				sessionid = j[1].strip()
-				return self.get_list_user()
+				logging.warning("LISTUSERAKTIF: {}" . format(sessionid))
+				return self.listuseraktif()
 			elif (command == 'logout'):
 				sessionid = j[1].strip()
-				return self.get_logout()
+				logging.warning("LOGOUT: {}". format(sessionid))
+				return self.logout(sessionid)
 			else:
 				return {'status': 'ERROR', 'message': '**Protocol Tidak Benar'}
 		except KeyError:
@@ -94,14 +96,21 @@ class Chat:
 			
 		return {'status': 'OK', 'messages': msgs}
 	
-	def get_list_user(self):
-		return {'status': 'OK', 'list_user': list(self.users.keys())}
+	def listuseraktif(self):
+		daftar = list(self.sessions.keys())
+		listuseraktif = ""
+		for i in daftar:
+			listuseraktif = listuseraktif + self.sessions[i]['username']+","
+		return {'status': 'OK', 'message': '{}' .format(listuseraktif)}
 
+	def logout(self, sessionid):
+		del self.sessions[sessionid]
+		return {'status': 'OK', 'messages': "Anda Berhasil Logout"}
 
 if __name__=="__main__":
 	j = Chat()
 	i = 0
-	print(j.get_list_user())
+	print(j.listuseraktif())
 	#sesi = j.proses("auth messi surabaya")
 	#print(sesi)
 	#sesi = j.autentikasi_user('messi','surabaya')
