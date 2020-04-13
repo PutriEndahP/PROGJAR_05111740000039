@@ -42,9 +42,11 @@ class HttpServer:
 		except IndexError:
 			return self.response(400,'Bad Request','',{})
 	def http_get(self,object_address):
+		return self.response(200,'OK','<h1>SERVER HTTP<h1>',{})
 		
-		return self.response(200,'OK','<h1>SERVER HTTP</h1>',{})
-		
+			 	
+#>>> import os.path
+#>>> ext = os.path.splitext('/ak/52.png')
 
 if __name__=="__main__":
 	httpserver = HttpServer()
