@@ -13,3 +13,9 @@
 3. Ujicobalah dengan apache benchmark untuk 1000 request dan konkurensi yang bervariasi
 
 4. Buatlah tabel untuk melaporkan hasilnya
+
+### Dengan Parameter :
+
+| Jumlah Request | Konkurensi | 
+| :-------------: | :-------------: |
+| 1000 | 1, 10, 30, 50, 100, 500, 1000 | 
