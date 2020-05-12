@@ -1,14 +1,14 @@
 # Tugas 9
 
-## SOal :
+## Soal :
 
 1. Pull update terakhir
 
 2. Jalankan kedua model tersebut
 
-  - Server_async_http.py di port 45000
+    - Server_async_http.py di port 45000
 
-  -Server_thread_http.py di port 46000
+    - Server_thread_http.py di port 46000
 
 3. Ujicobalah dengan apache benchmark untuk 1000 request dan konkurensi yang bervariasi
 
