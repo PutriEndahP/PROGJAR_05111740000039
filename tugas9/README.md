@@ -32,4 +32,8 @@
 | 6 | 500 | 0.468 | 1000 | 121 | 15372 | 2138.17 | 233.845 | 32.10 |
 | 7 | 1000 | 1.762 | 1000 | 425 | 51850 | 576.40 | 1762.410 | 28.73 |
 
+### Server_thread_http (PORT 46000)
 
+| No Test | Currency Level | Time taken for test [seconds] | Complete request | Failed request | Total transferred [bytes] | Request per second [#/sec] {mean} | Time per request [ms] (means) | Transfer rate [Kbytes/sec] |
+| :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
+| 1 | 1 | 1305.479 | 1000 | 0 | 122000 | 0.77 | 1305.479 | 0.09 |
