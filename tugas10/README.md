@@ -56,7 +56,7 @@
 | 6 | 500 | 0.337 | 1000 | 0 | 122000 | 2965.22 | 168.621 | 353.28 |
 | 7 | 1000 | 0.336 | 1000 | 0 | 122000 | 2978.69 | 335.718 | 354.88 |
 
-#### Server_thread_http (PORT 46000)
+#### Tabel Server_thread_http (PORT 46000)
 
 | No Test | Currency Level | Time taken for test [seconds] | Complete request | Failed request | Total transferred [bytes] | Request per second [#/sec] {mean} | Time per request [ms] (means) | Transfer rate [Kbytes/sec] |
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
@@ -68,11 +68,10 @@
 | 6 | 500 | 99.281 | 1000 | 0 | 122000 | 10.07 | 49640.541 | 1.20 |
 | 7 | 1000 | 111.526 | 1000 | 0 | 122000 | 8.97 | 111525.567 | 1.07 |
 
-#### Load Balancer (PORT 44444)
+#### Tabel Load Balancer (PORT 44444)
 
 | No Test | Currency Level | Time taken for test [seconds] | Complete request | Failed request | Total transferred [bytes] | Request per second [#/sec] {mean} | Time per request [ms] (means) | Transfer rate [Kbytes/sec] |
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
-
 | 1 | 1 | 0.618 | 1000 | 0 | 122000 | 1617.77 | 0.618 | 192.74 |
 | 2 | 10 | 0.317 | 1000 | 0 | 122000 | 3151.93 | 3.173 | 375.52 |
 | 3 | 30 | 0.333 | 1000 | 0 | 122000 | 3004.74 | 9.984 | 357.99 |
